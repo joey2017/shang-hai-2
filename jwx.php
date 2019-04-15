@@ -10,8 +10,7 @@
 <?php
 // 统一调用微信白名单接口：https://wq.jd.com/mjgj/link/GetOpenLink?callback=getOpenLink&rurl=https://dc2.jd.com/auto.php?service=transfer&type=pms&to=（这里是拼接自己的内容地址比如http://mjbbs.jd.com/data/attachment/forum/201806/08/173526pb2zpjzzooo2ofze.jpg）
 if($_GET['t']){
-// include("admin/config.php");
-// include("admin/function.php");
+
 $code = $_GET['t'];
 $info = query ( "jump_logs", "where code='" . $code . "'" );
 if($info['code'] == ''){
@@ -67,14 +66,7 @@ function get_ticket($code){
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     $content = curl_exec($ch);
     curl_close($ch);
-    //$arr = json_decode($content,1);
-    //if($arr['success'] == '1'){
-    //    $shotCode = $arr['shotCode'];
-    //}else{
-    //    $shotCode = '';
-    //}
-    //preg_match('/openlink\":\"(.*?)\"}/',$content,$result);
-    //$url = $result[1];
+
     preg_match('/href=\"(.*?)#wechat/',$content,$result);
     $url = $result[1];
     return $url;
@@ -104,6 +96,6 @@ function get_ticket($code){
     }
 }
 ?>
-<!-- 不懂的地方QQ我：3220192183，免费教学 -->
+
 </body>
 </html>
